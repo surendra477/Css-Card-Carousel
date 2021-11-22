@@ -1,0 +1,214 @@
+:root{
+    --gradient-t-b: linear-gradient(to bottom,#ff8a00,#e52e71);
+    --gradient-l-r: linear-gradient(to right,#ff8a00,#e52e71);
+    /* --gradient-t-b: linear-gradient(to bottom, #00f260, #0575e6);
+    --gradient-l-r: linear-gradient(to right, #00f260, #0575e6); */
+}
+
+
+.popular{
+    display: flex;
+    margin-top: 5rem;
+    margin-left: 5rem;
+    align-items: center;
+}
+
+/* Popular Card */
+
+.popular-card,
+.popular-card-alt{
+    width: 500px;
+    height: 380px;
+    padding: 1.5rem;
+    border-radius: 16px;
+    background: var(--gradient-t-b);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.popular-card-alt{
+    display: none;
+}
+
+.popular-card h1{
+    font-size: 1.8rem;
+    margin-bottom: 0;
+}
+.popular-card p{
+    font-family: "Lora", serif;
+    opacity: 0.4;
+}
+
+/* cards */
+
+.cards{
+    display: flex;
+    padding: 3rem;
+    overflow-x: scroll;
+}
+
+/* card */
+
+.card{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 400px;
+    min-width: 250px;
+    min-height: 350px;
+    background: #17141d;
+    border-radius: 16px;
+    box-shadow: -1rem 0 3rem #000;
+    padding: 1.5rem;
+    transition: 0.2s;
+}
+
+/* Card Header */
+
+.date-published{
+    font-family: "Lora", serif;
+    color: #7A7A8B;
+    font-size: 14px;
+}
+
+.date-published-prefix{
+    color: white;
+}
+
+h2{
+    font-size: 20px;
+    line-height: 1.5rem;
+}
+
+h2:hover,
+.tags a:hover,
+.tags a:first-child{
+    background:  var(--gradient-l-r);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    cursor: pointer;
+}
+
+
+/* Card body */
+
+.card-author{
+    position: relative;
+    display:  grid;
+    grid-template-columns: 75px 1fr;
+    align-items: center;
+    margin: 3rem 0;
+}
+
+.author-avatar img{
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    margin: 16px 10px;
+    filter: grayscale();
+}
+
+.half-circle{
+    position: absolute;
+    bottom: 2px;
+    left: 0;
+    width: 60px;
+    height: 48px;
+    fill: none;
+    stroke: url(#gradient);
+    stroke-width: 8px;
+    stroke-linecap: round;
+}
+
+.author-name{
+    font-family: "Lora", serif;
+    font-size: 14px;
+    line-height: 1.5rem;
+}
+
+.author-name-prefix{
+    color: #7A7A8B;
+    font-family: arial;
+    font-weight: bold;
+}
+
+/* Tags */
+
+.tags{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.tags a{
+    color: #7a7a8c;
+    text-transform: uppercase;
+    font-size: 0.6rem;
+    text-decoration: none;
+    margin-right: 0.3rem;
+    border: 3px solid #28242f;
+    border-radius: 3rem;
+    padding: 0.1rem 0.5rem;
+    margin-bottom: 0.3rem;
+}
+
+/* card scrollbar */
+
+.cards::-webkit-scrollbar{
+    width: 10px;
+    height: 10px;
+}
+
+.cards::-webkit-scrollbar-track{
+    background: #1d1a25;
+}
+.cards::-webkit-scrollbar-thumb{
+    background: #201c29;
+    border-radius: 10px;
+    box-shadow: inset 2px 2px 2px hsla(0,0%,100%,.25), inset -2px -2px 2px rgba(0,0,0,.25);
+    /* background: var(--gradient-l-r); */
+
+}
+
+/* Card Hover */
+.card:hover{
+    transform: translateY(-1rem);
+}
+
+.card:not(:first-child){
+    margin-left: -130px;
+}
+
+.card:hover ~ .card{
+    transform: translateX(130px);
+}
+
+
+
+/* Card Resonsive */
+
+@media (max-width:992px){
+
+    .popular{
+        margin-left: 1rem;
+    }
+    
+    .popular-card{
+        display: none;
+    }
+
+    .popular-card-alt{
+        display: block;
+        writing-mode: vertical-rl;
+        transform: rotate(180deg);
+        width: 110px;
+        padding: 2rem 1rem;
+    }
+    .popular-card-alt h1{
+        font-size: 20px;
+    }
+    .popular-card-alt h1,
+    .popular-card-alt p{
+        margin: 0;
+    }
+}
